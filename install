@@ -2,19 +2,21 @@
 
 cd files
 
+echo "args: $@" >&2 # debug
+
 # the user id (uid) to send the notification to (with notify-send)
 UID_NOTIFICATION="1000"
 
-cp 99-simple-usb-automount.rules /etc/udev/rules.d/
+cp 99-simple-usb-automount.rules "$2"/etc/udev/rules.d/
 
 if [[ "$1" == "ro" ]]; then
-	sed 's/mntopts="/&ro,/' simple-usb-automount > /usr/local/bin/simple-usb-automount
+	sed 's/mntopts="/&ro,/' simple-usb-automount > "$2"/usr/local/bin/simple-usb-automount
 else
-	cp simple-usb-automount /usr/local/bin/
+	cp simple-usb-automount "$2"/usr/local/bin/
 fi
-chmod +x /usr/local/bin/simple-usb-automount
+chmod +x "$2"/usr/local/bin/simple-usb-automount
 
-sed "s/{UID}/$UID_NOTIFICATION/; s/{USER}/$(getent passwd "$UID_NOTIFICATION" | cut -d: -f1)/" simple-usb-automount@.service > /etc/systemd/system/simple-usb-automount@.service
+sed "s/{UID}/$UID_NOTIFICATION/; s/{USER}/$(getent passwd "$UID_NOTIFICATION" | cut -d: -f1)/" simple-usb-automount@.service > "$2"/etc/systemd/system/simple-usb-automount@.service
 
 systemctl daemon-reload
 
