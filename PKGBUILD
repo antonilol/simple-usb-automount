@@ -1,9 +1,7 @@
-# Not finished yet
-
 # Maintainer: Antoni Spaanderman <56turtle56@gmail.com>
 
 pkgname=simple-usb-automount
-pkgver=1.0.1
+pkgver=1.0.2
 pkgrel=1
 arch=('any')
 url=https://github.com/antonilol/simple-usb-automount
@@ -16,5 +14,4 @@ package() {
   mkdir -p "$pkgdir"/{usr/local/bin,etc/{systemd/system,udev/rules.d}}
   ./install rw "$pkgdir"
 }
-
 

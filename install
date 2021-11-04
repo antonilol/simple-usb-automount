@@ -2,8 +2,6 @@
 
 cd files
 
-echo "args: $@" >&2 # debug
-
 # the user id (uid) to send the notification to (with notify-send)
 UID_NOTIFICATION="1000"
 
