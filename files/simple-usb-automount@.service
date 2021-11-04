@@ -1,0 +1,11 @@
+[Unit]
+Description=RO USB mount %i
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=/usr/local/bin/simple-usb-automount a %i
+ExecStop=/usr/local/bin/simple-usb-automount r %i
+Environment="DISP_USER={USER}" "DISP_UID={UID}" "DISPLAY=:0"
+#                      ^                 ^ expanded by install script
+

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+systemctl stop 'simple-usb-automount@*'
+
+rm /etc/udev/rules.d/99-simple-usb-automount.rules /usr/local/bin/simple-usb-automount /etc/systemd/system/simple-usb-automount@.service
+
+systemctl daemon-reload
+
+udevadm control --reload-rules
+
+echo "Done"
+
