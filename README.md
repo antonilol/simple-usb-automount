@@ -14,7 +14,13 @@ Does not come with the bloat desktop managers come with.
 ```bash
 git clone https://aur.archlinux.org/simple-usb-automount.git
 cd simple-usb-automount
-makepkg -i
+makepkg -si
+```
+
+Or with `yay` (an AUR helper)
+
+```bash
+yay -S simple-usb-automount
 ```
 
 ##### Other distros
