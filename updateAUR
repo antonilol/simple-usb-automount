@@ -1,0 +1,13 @@
+#!/bin/bash
+
+commit=$(git rev-parse --short HEAD)
+commits=$(git rev-list --count HEAD)
+
+cd ~/github/aur/simple-usb-automount-git
+
+sed -i "s/^pkgver.*/pkgver=$commits.$commit/" PKGBUILD
+
+makepkg --printsrcinfo > .SRCINFO
+
+git commit -am "$commit on github"
+git push

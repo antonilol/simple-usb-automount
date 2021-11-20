@@ -12,15 +12,15 @@ Does not come with the bloat desktop managers come with.
 ##### Arch Linux
 
 ```bash
-git clone https://aur.archlinux.org/simple-usb-automount.git
-cd simple-usb-automount
+git clone https://aur.archlinux.org/simple-usb-automount-git.git
+cd simple-usb-automount-git
 makepkg -si
 ```
 
 Or with `yay` (an AUR helper)
 
 ```bash
-yay -S simple-usb-automount
+yay -S simple-usb-automount-git
 ```
 
 ##### Other distros
@@ -34,7 +34,7 @@ sudo ./install
 ##### Arch Linux
 
 ```bash
-sudo pacman -R simple-usb-automount
+sudo pacman -R simple-usb-automount-git
 ```
 
 ##### Other distros
