@@ -16,9 +16,7 @@ chmod +x "$2"/usr/local/bin/simple-usb-automount
 
 sed "s/{UID}/$UID_NOTIFICATION/; s/{USER}/$(getent passwd "$UID_NOTIFICATION" | cut -d: -f1)/" simple-usb-automount@.service > "$2"/etc/systemd/system/simple-usb-automount@.service
 
-systemctl daemon-reload
-
-udevadm control --reload-rules
+systemctl daemon-reload || echo "Run 'systemctl daemon-reload' to reload systemd unit files after installation"
+udevadm control --reload-rules || echo "Run 'udevadm control --reload-rules' to reload udev rules after installation"
 
 echo "Done"
-
